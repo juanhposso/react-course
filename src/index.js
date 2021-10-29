@@ -1,17 +1,47 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import reactDom from 'react-dom';
+
+// * CSS
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const Image = () => {
+	return (
+		<img
+			src="https://images-na.ssl-images-amazon.com/images/I/81lqWON0ASL.jpg"
+			alt="book cover"
+		/>
+	);
+};
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const Title = () => {
+	return <h1>The Book Of Hope</h1>;
+};
+
+const Author = () => {
+	return <h4>Jane Goodall</h4>;
+};
+
+const Book = () => {
+	return (
+		<article className="book">
+			<Image />
+			<Title />
+			<Author />
+		</article>
+	);
+};
+
+function BookList() {
+	return (
+		<section className="booklist">
+			<Book />
+			<Book />
+			<Book />
+			<Book />
+			<Book />
+			<Book />
+		</section>
+	);
+}
+
+reactDom.render(<BookList />, document.getElementById('root'));
