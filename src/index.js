@@ -4,29 +4,20 @@ import reactDom from 'react-dom';
 // * CSS
 import './index.css';
 
-const Image = () => {
-	return (
-		<img
-			src="https://images-na.ssl-images-amazon.com/images/I/81lqWON0ASL.jpg"
-			alt="book cover"
-		/>
-	);
-};
+const Book = ({ Author, Title, age }) => {
+	//const Title = 'The Book Of Hope';
+	//const Author = 'Jane Goodall';
 
-const Title = () => {
-	return <h1>The Book Of Hope</h1>;
-};
-
-const Author = () => {
-	return <h4>Jane Goodall</h4>;
-};
-
-const Book = () => {
 	return (
 		<article className="book">
-			<Image />
-			<Title />
-			<Author />
+			<img
+				src="https://images-na.ssl-images-amazon.com/images/I/81lqWON0ASL.jpg"
+				alt="Book Cover"
+			/>
+			<h1>{Title}</h1>
+			<h4>
+				{Author.toUpperCase()} {age ? <span>{age}</span> : null}
+			</h4>
 		</article>
 	);
 };
@@ -34,12 +25,9 @@ const Book = () => {
 function BookList() {
 	return (
 		<section className="booklist">
-			<Book />
-			<Book />
-			<Book />
-			<Book />
-			<Book />
-			<Book />
+			<Book Author="Jane Goodall" Title="The Book Of Hope" age={28} />
+			<Book Author="Fabian" Title="The Book Of Hope" />
+			<Book Author="Juan david" Title="The Book Of Hope" />
 		</section>
 	);
 }
